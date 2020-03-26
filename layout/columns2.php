@@ -29,6 +29,9 @@ global $PAGE;
 // MODIFICATION END.
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+// MODIFICATION START: Allow own user preference to be set via Javascript.
+user_preference_allow_ajax_update('theme_boost_campus_infobanner_dismissed', PARAM_BOOL);
+// MODIFICATION END.
 require_once($CFG->libdir . '/behat/lib.php');
 // MODIFICATION Start: Require own locallib.php.
 require_once($CFG->dirroot . '/theme/boost_campus/locallib.php');
@@ -76,6 +79,25 @@ if (get_config('theme_boost_campus', 'darknavbar') == 'yes') {
 $navdrawerfullwidth = get_config('theme_boost_campus', 'navdrawerfullwidth');
 // MODIFICATION END.
 
+// MODIFICATION START: Settings for information banner.
+$infobannercontent = format_text(get_config('theme_boost_campus', 'infobannercontent'));
+// Result of multiselect is a string divided by a comma, so exploding into an array.
+$infobannerpagestoshow = explode(",", get_config('theme_boost_campus', 'infobannerpagestoshow'));
+$infobannercssclass = get_config('theme_boost_campus', 'infobannercssclass');
+$infobannerdismissible = get_config('theme_boost_campus', 'infobannerdismissible');
+$infobannerenable = get_config('theme_boost_campus', 'infobannerenable');
+$infobannershowonselectedpage = false;
+$infobanneruserprefdialoguedismissed = get_user_preferences('theme_boost_campus_infobanner_dismissed');
+
+// Traverse multiselect setting.
+foreach ($infobannerpagestoshow as $page) {
+    // Decide if the info banner should be shown at all.
+    if ($infobannerenable && !empty($infobannercontent) && $PAGE->pagelayout == $page && !$infobanneruserprefdialoguedismissed) {
+        $infobannershowonselectedpage = true;
+    }
+}
+// MODIFICATION END.
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -88,7 +110,11 @@ $templatecontext = [
     // MODIFICATION START: Add Boost Campus realated values to the template context.
     'catchshortcuts' => json_encode($catchshortcuts),
     'navdrawerfullwidth' => $navdrawerfullwidth,
-    'darknavbar' => $darknavbar
+    'darknavbar' => $darknavbar,
+    'infobannercontent' => $infobannercontent,
+    'infobannercssclass' => $infobannercssclass,
+    'infobannerdismissible' => $infobannerdismissible,
+    'infobannershowonselectedpage' => $infobannershowonselectedpage
     // MODIFICATION END.
 ];
 

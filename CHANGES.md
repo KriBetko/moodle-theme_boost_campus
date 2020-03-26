@@ -4,6 +4,10 @@ moodle-theme_boost_campus
 Changes
 -------
 
+### Unreleased
+
+* 2020-03-26 - Added settings to be able to show a banner with information on selected pages.
+
 ### Release v3.8-r1
 
 * 2020-03-24 - Changed setting imageareaitemslink to imageareaitemsattributes to be able to add alt text to the images.

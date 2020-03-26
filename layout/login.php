@@ -30,11 +30,32 @@ require_once($CFG->dirroot . '/theme/boost_campus/locallib.php');
 $bodyattributes = $OUTPUT->body_attributes();
 $loginbackgroundimagetext = theme_boost_campus_get_loginbackgroundimage_text();
 
+// MODIFICATION START: Settings for information banner.
+$infobannercontent = format_text(get_config('theme_boost_campus', 'infobannercontent'));
+// Result of multiselect is a string divided by a comma, so exploding into an array.
+$infobannerpagestoshow = explode(",", get_config('theme_boost_campus', 'infobannerpagestoshow'));
+$infobannercssclass = get_config('theme_boost_campus', 'infobannercssclass');
+$infobannerdismissible = get_config('theme_boost_campus', 'infobannerdismissible');
+$infobannerenable = get_config('theme_boost_campus', 'infobannerenable');
+$infobannershowonselectedpage = false;
+
+// Traverse multiselect setting.
+foreach ($infobannerpagestoshow as $page) {
+    // Decide if the info banner should be shown at all.
+    if ($infobannerenable && !empty($infobannercontent) && $PAGE->pagelayout == $page) {
+        $infobannershowonselectedpage = true;
+    }
+}
+// MODIFICATION END.
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
-    'loginbackgroundimagetext' => $loginbackgroundimagetext
+    'loginbackgroundimagetext' => $loginbackgroundimagetext,
+    'infobannercontent' => $infobannercontent,
+    'infobannercssclass' => $infobannercssclass,
+    'infobannershowonselectedpage' => $infobannershowonselectedpage
 ];
 
 // MODIFICATION START: Handle additional layout elements.

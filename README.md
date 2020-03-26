@@ -202,6 +202,32 @@ By checking this setting the default homepage link (Dashboard or Site home) will
 
 By checking this setting you can enlarge the opened nav drawer menu to the full page width on small screens. This may be wanted because on small screens only very few of the main content area in the background is visible. And a full width menu might serve the users' expectations how menus are displayed on small screens.
 
+#### Information banner
+
+##### Enable info banner
+
+With this checkbox you can decide if the info banner should be shown or hidden on the selected pages.
+
+##### Information banner content (dependent on setting "Enable info banner")
+
+Enter your information which should be shown within the banner here.
+
+##### Pages to display the info banner on (dependent on setting "Enable info banner")
+
+With this setting you can select the pages on which the info banner should be displayed.
+
+##### Bootstrap css class (dependent on setting "Enable info banner")
+
+With this setting you can select the Bootstrap style with which the info banner should be displayed.
+
+##### Info banner dismissible (dependent on setting "Enable info banner")
+
+With this checkbox you can make the banner dismissible permanently. If the user clicks on the x-button a confirmation dialogue will appear and only after the user confirmed this dialogue the banner will be hidden for this user permanently. 
+
+Please note:
+
+This setting has no effect for the banners shown on the login page. Because banner on the login page cannot be clicked away permanently, we do not offer the possibility to click the banner away at all.
+
 ### 6. Tab "Design Settings"
 
 #### Login Page

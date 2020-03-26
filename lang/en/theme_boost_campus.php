@@ -170,6 +170,28 @@ $string['defaulthomepageontopsetting_desc'] = 'By checking this setting the defa
 // ...Navdrawer full width on small screens.
 $string['navdrawerfullwidthsetting'] = 'Nav drawer full width on small screens';
 $string['navdrawerfullwidthsettings_desc'] = 'By checking this setting you can enlarge the opened nav drawer menu to the full page width on small screens. This may be wanted because on small screens only very few of the main content area in the background is visible. And a full width menu might serve the users\' expectations how menus are displayed on small screens.';
+// ...Information banner.
+$string['infobannerheadingsetting'] = 'Information banner';
+$string['infobannerheadingsetting_desc'] = 'The following settings allow to show some important information within a prominent banner.';
+$string['infobannerenablesetting'] = 'Enable info banner';
+$string['infobannerenablesetting_desc'] = 'With this checkbox you can decide if the info banner should be shown or hidden on the selected pages.';
+$string['infobannercontent'] = 'Information banner content';
+$string['infobannercontent_desc'] = 'Enter your information which should be shown within the banner here.';
+$string['infobannerpagestoshowsetting'] = 'Pages to display the info banner on';
+$string['infobannerpagestoshowsetting_desc'] = 'With this setting you can select the pages on which the info banner should be displayed.';
+$string['infobannercssclasssetting'] = 'Bootstrap css class';
+$string['infobannercssclasssetting_desc'] = 'With this setting you can select the Bootstrap style with which the info banner should be displayed.';
+$string['primary'] = 'Primary color';
+$string['secondary'] = 'Secondary color';
+$string['success'] = 'Success color';
+$string['danger'] = 'Danger color';
+$string['warning'] = 'Warning color';
+$string['info'] = 'Info color';
+$string['light'] = 'Light color';
+$string['dark'] = 'Dark color';
+$string['infobannerdismissiblesetting'] = 'Info banner dismissible';
+$string['infobannerdismissiblesetting_desc'] = 'With this checkbox you can make the banner dismissible permanently. If the user clicks on the x-button a confirmation dialogue will appear and only after the user confirmed this dialogue the banner will be hidden for this user permanently.
+<br/><br/> Please note: <br/> This setting has no effect for the banners shown on the login page. Because banner on the login page cannot be clicked away permanently, we do not offer the possibility to click the banner away at all.';
 
 // Design settings.
 $string['designsettings'] = 'Design Settings';
@@ -225,11 +247,16 @@ An example for a use case can be found in the README.md file.';
 // ADDITIONAL STRINGS (IN ALPHABETICAL ORDER).
 $string['backtotop'] = 'Back to top';
 $string['cachedef_imagearea'] = 'Cache for imagearea items';
+$string['close'] = 'Close';
+$string['confirmation'] = 'Confirmation';
+$string['closinginfobanner'] = 'Are you sure you ant to dismiss this information? Once done it will not occur again. If you want to keep the information, press "Cancel". If you are sure you want to hide this information forever, then click on "Yes, close!"';
+$string['login_page'] = "Login page";
 $string['showhintcourseguestaccessgeneral'] = 'You are currently viewing this course as <strong>{$a->role}</strong>.';
 $string['showhintcourseguestaccesslink'] = 'To have full access to the course, you can <a href="{$a->url}">self enrol into this course</a>.';
 $string['showhintcoursehiddengeneral'] = 'This course is currently <strong>hidden</strong>. Only enrolled teachers can access this course when hidden.';
 $string['showhintcoursehiddensettingslink'] = 'You can change the visibility in the <a href="{$a->url}">course settings</a>.';
 $string['switchroleto'] = 'Switch role to';
+$string['yes_close'] = "Yes, close!";
 
 // PRIVACY.
 $string['privacy:metadata'] = 'The Boost Campus theme does not store any personal data about any user.';
